@@ -1,4 +1,4 @@
-
+OSINT look for src_ip
 Hunting an APT with Splunk - Initial Access
 
 Hunting an APT with Splunk is a hands-on workshop designed to provide a deeper dive into a "fictional nation-state" Advanced Persistent Threat. This workshop leverages Splunk and Enterprise Security and uses the Lockheed Martin Kill Chain and MITRE ATT&CK to contextualize a hunt. Initial access of the victim's system is the primary focus in this workshop. All hunts in this workshop series leverage the popular Boss of the SOC (BOTS) dataset. Users will leave with a better understanding of how Splunk can be used to hunt for threats within their enterprise.
@@ -39,6 +39,25 @@ index=botsv2 sourcetype=stream:smtp attach_filename {}=invoie.zip
 Find additional info about the phish: Originating sender, sneder name, receipients, attachment name, size, date/time, body, subject, others
 
 Look for attach_type{}
+
+Use OSINT look for src_ip location and use whi is searching the sender address
+
+<h2>Common sender investigation</h2>
+
+index=botsv2 sourcetype=stream:smtp sender="Jim Smith <jsmith@urinalysis.com>"
+|table +time receipient subject attach_filename{} attach_size{} attach_content_decoded_md5_hash{}
+
+
+Copy base64 filehas to cyberchef
+
+Comparing emails content:
+index=botsv2 sourcetype=stream: smtp snder="Jim Smith <jsmith@urinalysis.com>"
+|table _time receipient subject content_body{}
+|sort receipient
+
+Look for attachment hash value
+
+input has file into virusTotal
 
 
 
