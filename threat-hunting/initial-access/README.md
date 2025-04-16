@@ -17,6 +17,10 @@ Password: Splunk.5
 metadata command
 
 | metadata type=sourcetypes index=botsv2
+| eval firstTime=strftime(firstTime,"%Y-%m-%d %H:%M:%S")
+| eval lastTime=strftime(lastTime,"%Y-%m-%d %H:%M:%S")
+| eval recentTime=strftime(recentTime,"%Y-%m-%d %H:%M:%S")
+| sort - totalCount
 
 project create time and last seen time
 
@@ -29,5 +33,15 @@ Apps >Frothly Environment (show the network diagram)
 <h2>T1566.001 Phishing - spearphishing attachment</h2>
 
 Look for mail traffic attack
+
+index=botsv2 sourcetype=stream:smtp attach_filename {}=invoie.zip
+
+Find additional info about the phish: Originating sender, sneder name, receipients, attachment name, size, date/time, body, subject, others
+
+Look for attach_type{}
+
+
+
+
 
 
