@@ -30,7 +30,7 @@ Apps > Enterprise Security > Security Domains > Identoty > Asset Center (show da
 
 Apps >Frothly Environment (show the network diagram)
 
-<h2>T1566.001 Phishing - spearphishing attachment</h2>
+<h1>T1566.001 Phishing - spearphishing attachment</h1>
 
 Look for mail traffic attack
 
@@ -59,7 +59,30 @@ Look for attachment hash value
 
 input has file into virusTotal
 
+<h2>lesson learn</h2>
+Identify receipients received emails from same sender, Identical Metadata in both attacks, sent from a commercial service, OSINT did not provide additional corroboration
 
+Recommedation: Apply watchlisting of domain to monitor, apply alerting to sender IP, automate analysis of hash values, develop analytics to alert on attachment
+
+<h1>T1204.0021 User Execution: Malicious file</h1>
+
+Check any execution action:
+
+index=botsv2 invoice.zip sourcetype="xmlwineventlog:microsoft-windows-sysmon/operational"
+
+Additional Events after Execution
+
+Use time picker to narrow down the event
+
+index=botsv2 invoice.zip sourcetype="xmlwineventlog:microsoft-windows-sysmon/operational" | reverse
+
+Use cyberchef decode the powershell/file hash code
+
+<h2>lesson learn</h2>
+
+User did have encoded powershell code after opening the attachment from spearphishing email
+
+Recommedation: Prohibit use of macro file, monitor their execution, apply EDR solution to analyze and log and block the execution, Alert when sysmon or windows events code 4688 appears with powershell running
 
 
 
