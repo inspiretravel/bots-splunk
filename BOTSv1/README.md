@@ -1,1 +1,95 @@
+# Scenario 1: Web site defacement
+
+## Question 1:
+What is the likely IPv4 address of someone from the Po1s0n1vy group scanning imreallynotbatman.com for web application vulnerabilities?
+
+
+## Question 2 :
+What company created the web vulnerability scanner used by Po1s0n1vy? Type the company name.
+
+
+## Queston 3: 
+What content management system is imreallynotbatman.com likely using?
+
+
+
+## Question 4:
+What is the name of the file that defaced the imreallynotbatman.com website?(Come to this question after finding password and parentprocess in further questions)
+
+## Question 5:
+This attack used dynamic DNS to resolve to the malicious IP. What fully qualified domain name (FQDN) is associated with this attack?
+
+## Question 6:
+What IPv4 address has Po1s0n1vy tied to domains that are pre-staged to attack Wayne Enterprises?
+
+## Question 7:
+What IPv4 address is likely attempting a brute force password attack against imreallynotbatman.com?
+
+## Question 8:
+What is the name of the executable uploaded by Po1s0n1vy?
+
+## Question 9:
+What is the MD5 hash of the executable uploaded?
+
+## Question 10:
+GCPD reported that common TTPs (Tactics, Techniques, Procedures) for the Po1s0n1vy APT group, if initial compromise fails, is to send a spear phishing email with custom malware attached to their intended target. This malware is usually connected to Po1s0n1vys initial attack infrastructure. Using research techniques, provide the SHA256 hash of this malware.
+
+## Question 11:
+What special hex code is associated with the customized malware discussed in question 10?
+
+## Question 12:
+What was the first brute force password used?
+
+## Question 13:
+One of the passwords in the brute force attack is James Brodsky’s favorite Coldplay song. We are looking for a six character word on this one. Which is it?
+
+## Question 14:
+What was the correct password for admin access to the content management system running “imreallynotbatman.com”?
+
+## Question 15:
+What was the average password length used in the password brute forcing attempt?
+
+## Question 16:
+How many seconds elapsed between the time the brute force password scan identified the correct password and the compromised login?
+
+## Question 17:
+How many unique passwords were attempted in the brute force attempt?
+
+# Scenario 2: Ransomware
+
+## Question 1:
+What was the most likely IPv4 address of we8105desk on 24AUG2016?
+
+## Question 2:
+Amongst the Suricata signatures that detected the Cerber malware, which one alerted the fewest number of times?
+
+## Question 3: 
+What fully qualified domain name (FQDN) does the Cerber ransomware attempt to direct the user to at the end of its encryption phase?
+
+## Question 4:
+What was the first suspicious domain visited by we8105desk on 24AUG2016?
+
+## Question 5:
+During the initial Cerber infection a VB script is run. The entire script from this execution, pre-pended by the name of the launching .exe, can be found in a field in Splunk. What is the length of the value of this field?
+
+## Question 6:
+What is the name of the USB key inserted by Bob Smith?
+
+## Question 7: 
+Bob Smith’s workstation (we8105desk) was connected to a file server during the ransomware outbreak. What is the IPv4 address of the file server?
+
+## Question 8:
+How many distinct PDFs did the ransomware encrypt on the remote file server?
+
+## Question 9: 
+The VBscript found in question 204 launches 121214.tmp. What is the ParentProcessId of this initial launch?
+
+## Question 10: 
+The Cerber ransomware encrypts files located in Bob Smith’s Windows profile. How many .txt files does it encrypt?
+
+## Question 11:
+The malware downloads a file that contains the Cerber ransomware cryptor code. What is the name of that file?
+
+## Question 12:
+Now that you know the name of the ransomware’s encryptor file, what obfuscation technique does it likely use?
 
