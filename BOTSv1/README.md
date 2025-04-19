@@ -15,6 +15,7 @@ Today is Alice's first day at the Wayne Enterprises' Security Operations Center.
 |Alices journal:|https://botscontent.netlify.app/v1/alice-journal.html|
 |Mission document:|https://botscontent.netlify.app/v1/mission_document.html|
 
+Source from: Sysmon, windows events, windows registry, IIS, Splunk Stream (wire data), Suricata, Fortigate
 
 ## Question 1:
 What is the likely IPv4 address of someone from the Po1s0n1vy group scanning imreallynotbatman.com for web application vulnerabilities?
