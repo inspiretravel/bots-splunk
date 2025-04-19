@@ -10,7 +10,7 @@ This page is designed to be hands-on and is using the splunk BOTS dataset. The g
 
 | Sessions                                   | Status      |
 |-----------------------------------------------|----------------------------|
-| BOTSv1 challenge|<a href="https://github.com/inspiretravel/azure-cloud-soc-homelab">In progress</a>|
+| BOTSv1 challenge|<a href="https://github.com/inspiretravel/azure-cloud-soc-homelab](https://github.com/inspiretravel/bots-splunk/tree/main/BOTSv1">In progress</a>|
 | BOTSv3 challenge|Planning|
 | Hunting an APT|In progress|  
 
