@@ -17,6 +17,10 @@ This page is designed to be hands-on and is using the splunk BOTS dataset. The g
 
 ----------------------------------------------
 
+|Splunk Common Commands Used|| 
+|-----------------------------------------------|----------------------------|
+|metadata, stats -distinct count, count, values, average, AS, eval -lower,length, round, table, AND OR NOT, sort, reverse, head, transaction, rex, search, inputlookup, outpuutlookup, fields, lookup|
+
 
 
 |Resource:|
