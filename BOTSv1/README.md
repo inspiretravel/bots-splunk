@@ -1,4 +1,20 @@
-# Scenario 1: Web site defacement
+# Scenario 1: Web site defacement 
+
+Web site defacement
+Today is Alice's first day at the Wayne Enterprises' Security Operations Center. Lucius sits Alice down and gives her first assignment: A memo from Gotham City Police Department (GCPD). Apparently GCPD has found evidence online (http://pastebin.com/Gw6dWjS9) that the website www.imreallynotbatman.com hosted on Wayne Enterprises' IP address space has been compromised. The group has multiple objectives... but a key aspect of their modus operandi is to deface websites in order to embarrass their victim. Lucius has asked Alice to determine if www.imreallynotbatman.com. (the personal blog of Wayne Corporations CEO) was really compromised.
+
+
+
+|info|link|
+|---------------|--------------|
+|Splunk server:|https://gettingstarted.splunk.show|
+|Credentials:|user001-splk , Splunk.5|
+|Bots v1 sourcetype summary:|https://botscontent.netlify.app/v1/bots_sourcetypes.html|
+|Splunk quick reference guide:|https://www.splunk.com/pdfs/solution-guides/splunk-quick-reference-guide.pdf|
+|Gcpd poison ivy memo:|https://botscontent.netlify.app/v1/gcpd-poisonivy-memo.html|
+|Alices journal:|https://botscontent.netlify.app/v1/alice-journal.html|
+|Mission document:|https://botscontent.netlify.app/v1/mission_document.html|
+
 
 ## Question 1:
 What is the likely IPv4 address of someone from the Po1s0n1vy group scanning imreallynotbatman.com for web application vulnerabilities?
