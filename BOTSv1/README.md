@@ -337,6 +337,11 @@ Ans: 4490
 ## Question 205:
 What is the name of the USB key inserted by Bob Smith?
 
+Go to google. Look for any USB key in windows registry.
+```
+index=botsv1 *USBSTOR* sourcetype=*regis*
+```
+
 Ans: MIRANDA_PRI
 
 ## Question 206: 
