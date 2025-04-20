@@ -341,6 +341,14 @@ Go to google. Look for any USB key in windows registry.
 ```
 index=botsv1 *USBSTOR* sourcetype=*regis*
 ```
+find usbstor with reg_sz value . Let try it out.
+```
+index=botsv1 *USBSTOR* sourcetype=WinRegistry registry_value_type=REG_SZ *usbstor* | table key_path
+```
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/205.jpg?raw=true)
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/205a.jpg?raw=true)
+
+friendly name
 
 Ans: MIRANDA_PRI
 
