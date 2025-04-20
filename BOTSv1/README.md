@@ -398,7 +398,8 @@ Ans: 3968
 The Cerber ransomware encrypts files located in Bob Smith’s Windows profile. How many .txt files does it encrypt?
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209.jpg?raw=true)
-
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209a.jpg?raw=true)
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209b.jpg?raw=true)
 Ans: 3968
 
 ## Question 210:
@@ -414,12 +415,12 @@ Guess malware could connect somewhere. URL may be the fields to look for.
 In URL, one file /mhtr.jpg catch our eyes. Went to confirm our assumption. Use suricata wto confirm.
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/210a.jpg?raw=true)
-Ans: 406
+
+Ans: mhtr.jpg
 
 ## Question 211:
 Now that you know the name of the ransomware’s encryptor file, what obfuscation technique does it likely use?
 
-Ans: mhtr.jpg
 
 Search it in the internet
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/211.jpg?raw=true)
