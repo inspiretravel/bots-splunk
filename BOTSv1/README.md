@@ -17,36 +17,124 @@ Today is Alice's first day at the Wayne Enterprises' Security Operations Center.
 
 Source from: Sysmon, windows events, windows registry, IIS, Splunk Stream (wire data), Suricata, Fortigate
 
-## Question 1:
+## Question 101:
 What is the likely IPv4 address of someone from the Po1s0n1vy group scanning imreallynotbatman.com for web application vulnerabilities?
 
+First come to our mind, sorucetype is highly assocatied with http. We can start to narrow down the data.
+```
+index=botsv1 imreallynotbatman.com sourcetype="stream:http"
+```
 
-## Question 2 :
+Look for interesting fields > source ip or dest ip. Find one field called c_ip that look like what we can answer this question.
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q100%20.jpg?raw=true)
+
+
+## Question 102 :
 What company created the web vulnerability scanner used by Po1s0n1vy? Type the company name.
 
+This question is asked for the scanner. See to input the wildcard with scan for getting some hints. 
 
-## Queston 3: 
+```
+index=botsv1 imreallynotbatman.com sourcetype="stream:http" c_ip="40.80.148.42" "*scan*"
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q102.jpg?raw=true)
+
+Look at the dest_header. We found the hint related to joomla. Keep looking down the data. Here it goes. It captures the scanner info.
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q102a.jpg?raw=true)
+
+
+
+## Queston 103: 
 What content management system is imreallynotbatman.com likely using?
 
+Based on previous question, we know the joomla is one of CMS system.
 
-
-## Question 4:
+## Question 104:
 What is the name of the file that defaced the imreallynotbatman.com website?(Come to this question after finding password and parentprocess in further questions)
 
-## Question 5:
+After solving Q108, go back this question. Look at firewall data and think Defaced may relate to some sort of image file. Got stuck for 20 mins. Removed the search keyword imreallynotbatman. 
+
+```
+index=botsv1 sourcetype="fgt_utm" NOT dest=192.168.250.70
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q104.jpg?raw=true)
+
+There is category field and click on Malicious Websites. Find one particular file
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q104a.jpg?raw=true)
+
+## Question 105:
 This attack used dynamic DNS to resolve to the malicious IP. What fully qualified domain name (FQDN) is associated with this attack?
+
+Look at Q104 URL file path. prankglassinebracket.jumpingcrab.com is the domain of this attack.
 
 ## Question 6:
 What IPv4 address has Po1s0n1vy tied to domains that are pre-staged to attack Wayne Enterprises?
 
-## Question 7:
+Look for something in http log if people attack using malware file from malicious IP
+```
+index=botsv1 imreallynotbatman.com dest_ip=192.168.250.70 sourcetype=stream:http http_method=POST
+```
+
+There is 2 src IP address. Look at another one. 
+
+The question is identify the attack from Po1s0n1vy.
+
+Term: Po1s0n1vy is an Advanced Persistent Threat (APT) group identified for targeting organizations with custom malware and spear phishing tactics, often involving initial compromise through emails with malicious attachments. The group has been associated with specific TTPs (Tactics, Techniques, Procedures) and infrastructure
+
+Got the hints from request field using POST involving email.
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q106.jpg?raw=true)
+
+## Question 108:
 What IPv4 address is likely attempting a brute force password attack against imreallynotbatman.com?
 
-## Question 8:
+Browse around and look for some clues. 
+```
+index=botsv1 imreallynotbatman.com dest_ip="192.168.250.70" sourcetype="stream:http"
+```
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q107.jpg?raw=true)
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q107a.jpg?raw=true)
+
+There is source IP 40.80.148.42 outside the company. Look supicious but seem no luck. Think about the http method for entering userid and password.
+
+```
+index=botsv1 imreallynotbatman.com dest_ip="192.168.250.70" sourcetype="stream:http" http_method=POST
+```
+
+Drill down more. Form_date field shows us this IP address 23.22.63.114 doing some logon transaction attempt 
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q107b.jpg?raw=true)
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q107b.jpg?raw=true)
+
+## Question 109:
 What is the name of the executable uploaded by Po1s0n1vy?
 
-## Question 9:
+THe source most likley coulkd capture tin IDS/IPS system for this type of attack. So, we can look for the soruce from suricata. 
+
+Term: Suricata is a free and open-source network intrusion detection and prevention system (IDS/IPS) developed by the Open Information Security Foundation (OISF). It's used to identify, stop, and assess network threats. Suricata can also function as a network security monitoring (NSM) engine and analyze PCAP files
+
+```
+index=botsv1 sourcetype=suricata dest=imreallynotbatman.com http.http_method=POST
+```
+
+Look at the dest ip pointing to the local machine that capture many times
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/109.jpg?raw=true)
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/109a.jpg?raw=true)
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/109b.jpg?raw=true)
+
+Eventually, found the 2 exe filenames. 3719.exe is the one. 
+
+## Question 110:
 What is the MD5 hash of the executable uploaded?
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/110.jpg?raw=true)
+
+```index=botsv1 "3791.exe" CommandLine=3791.exe```
+Look at the field MD5 . And it should have commandline once this file is executed sorting out the MD5 value. The answer is AAE3F5A29935E6ABCC2C2754D12A9AF0.
 
 ## Question 10:
 GCPD reported that common TTPs (Tactics, Techniques, Procedures) for the Po1s0n1vy APT group, if initial compromise fails, is to send a spear phishing email with custom malware attached to their intended target. This malware is usually connected to Po1s0n1vys initial attack infrastructure. Using research techniques, provide the SHA256 hash of this malware.
