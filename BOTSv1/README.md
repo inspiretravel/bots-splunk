@@ -289,12 +289,12 @@ index="botsv1" we8105desk | stats count by src_ip
 Ans: 192.168.250.100
 
 ## Question 201:
-Amongst the Suricata signatures that detected the Cerber malware, which one alerted the fewest number of times?
+Among the Suricata signatures that detected the Cerber malware, which one alerted the fewest number of times?
 
 ```
 index=”botsv1" sourcetype=”suricata” *cerber* 
 ```
-Get the hint from the signautre id and keep looking.
+Get the hint from the field signautre id and keep looking.
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/202.jpg?raw=true)
 
@@ -343,7 +343,10 @@ Ans: MIRANDA_PRI
 Bob Smith’s workstation (we8105desk) was connected to a file server during the ransomware outbreak. What is the IPv4 address of the file server?
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/206.jpg?raw=true)
-Answ: 192.168.250.20
+
+Click dest-IP, find the most count value
+
+Ans: 192.168.250.20
 
 ## Question 207:
 How many distinct PDFs did the ransomware encrypt on the remote file server?
