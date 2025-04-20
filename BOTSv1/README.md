@@ -251,20 +251,60 @@ Alices journal: https://botscontent.netlify.app/v1/alice-journal.html
 Mission document: https://botscontent.netlify.app/v1/mission_document.html
 
 
-## Question 1:
+## Question 201:
 What was the most likely IPv4 address of we8105desk on 24AUG2016?
 
-## Question 2:
+Select the date range into 24AUG2016. Look for the winner.
+
+```
+index="botsv1" we8105desk | stats count by src_ip
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/200.jpg?raw=true)
+
+## Question 202:
 Amongst the Suricata signatures that detected the Cerber malware, which one alerted the fewest number of times?
 
-## Question 3: 
+```
+index=”botsv1" sourcetype=”suricata” *cerber* 
+```
+Get the hint from the signautre id and keep looking.
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/202.jpg?raw=true)
+
+## Question 203: 
 What fully qualified domain name (FQDN) does the Cerber ransomware attempt to direct the user to at the end of its encryption phase?
 
-## Question 4:
+domain info should capture into DNS data source.
+
+```
+index=botsv1 sourcetype=stream:dns src_ip=192.168.250.100
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/203.jpg?raw=true)
+Search any suspicous domain.
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/203a.jpg?raw=true)
+
+Ans: cerberhhyed5frqa.xmfir0.win
+
+
+## Question 204:
 What was the first suspicious domain visited by we8105desk on 24AUG2016?
+
+```
+index=botsv1 sourcetype=stream:dns src_ip=192.168.250.100 "query_type{}"=A  |table _time query{} | reverse
+```
+Look for the query info and use the reverse function in time to identify 
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/204.jpg?raw=true)
+
+Ans: solidaritedeproximite.org
 
 ## Question 5:
 During the initial Cerber infection a VB script is run. The entire script from this execution, pre-pended by the name of the launching .exe, can be found in a field in Splunk. What is the length of the value of this field?
+
+
 
 ## Question 6:
 What is the name of the USB key inserted by Bob Smith?
@@ -287,3 +327,7 @@ The malware downloads a file that contains the Cerber ransomware cryptor code. W
 ## Question 12:
 Now that you know the name of the ransomware’s encryptor file, what obfuscation technique does it likely use?
 
+Search it in the internet
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/211.jpg?raw=true)
+
+ans: steganography
