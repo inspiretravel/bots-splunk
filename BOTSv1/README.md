@@ -251,7 +251,7 @@ Alices journal: https://botscontent.netlify.app/v1/alice-journal.html
 Mission document: https://botscontent.netlify.app/v1/mission_document.html
 
 
-## Question 201:
+## Question 200:
 What was the most likely IPv4 address of we8105desk on 24AUG2016?
 
 Select the date range into 24AUG2016. Look for the winner.
@@ -262,7 +262,7 @@ index="botsv1" we8105desk | stats count by src_ip
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/200.jpg?raw=true)
 
-## Question 202:
+## Question 201:
 Amongst the Suricata signatures that detected the Cerber malware, which one alerted the fewest number of times?
 
 ```
@@ -272,7 +272,7 @@ Get the hint from the signautre id and keep looking.
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/202.jpg?raw=true)
 
-## Question 203: 
+## Question 202: 
 What fully qualified domain name (FQDN) does the Cerber ransomware attempt to direct the user to at the end of its encryption phase?
 
 domain info should capture into DNS data source.
@@ -289,7 +289,7 @@ Search any suspicous domain.
 Ans: cerberhhyed5frqa.xmfir0.win
 
 
-## Question 204:
+## Question 203:
 What was the first suspicious domain visited by we8105desk on 24AUG2016?
 
 ```
@@ -301,30 +301,30 @@ Look for the query info and use the reverse function in time to identify
 
 Ans: solidaritedeproximite.org
 
-## Question 5:
+## Question 204:
 During the initial Cerber infection a VB script is run. The entire script from this execution, pre-pended by the name of the launching .exe, can be found in a field in Splunk. What is the length of the value of this field?
 
 
 
-## Question 6:
+## Question 205:
 What is the name of the USB key inserted by Bob Smith?
 
-## Question 7: 
+## Question 206: 
 Bob Smith’s workstation (we8105desk) was connected to a file server during the ransomware outbreak. What is the IPv4 address of the file server?
 
-## Question 8:
+## Question 207:
 How many distinct PDFs did the ransomware encrypt on the remote file server?
 
-## Question 9: 
+## Question 208: 
 The VBscript found in question 204 launches 121214.tmp. What is the ParentProcessId of this initial launch?
 
-## Question 10: 
+## Question 209: 
 The Cerber ransomware encrypts files located in Bob Smith’s Windows profile. How many .txt files does it encrypt?
 
-## Question 11:
+## Question 210:
 The malware downloads a file that contains the Cerber ransomware cryptor code. What is the name of that file?
 
-## Question 12:
+## Question 211:
 Now that you know the name of the ransomware’s encryptor file, what obfuscation technique does it likely use?
 
 Search it in the internet
