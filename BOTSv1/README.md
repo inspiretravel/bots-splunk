@@ -136,11 +136,19 @@ What is the MD5 hash of the executable uploaded?
 ```index=botsv1 "3791.exe" CommandLine=3791.exe```
 Look at the field MD5 . And it should have commandline once this file is executed sorting out the MD5 value. The answer is AAE3F5A29935E6ABCC2C2754D12A9AF0.
 
-## Question 10:
+## Question 111:
 GCPD reported that common TTPs (Tactics, Techniques, Procedures) for the Po1s0n1vy APT group, if initial compromise fails, is to send a spear phishing email with custom malware attached to their intended target. This malware is usually connected to Po1s0n1vys initial attack infrastructure. Using research techniques, provide the SHA256 hash of this malware.
 
-## Question 11:
-What special hex code is associated with the customized malware discussed in question 10?
+Use the Q110 info to find the info in any.run, virus total and google. 
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/111.jpg?raw=true)
+
+Ans: 9709473ab351387aab9e816eff3910b9f28a7a70202e250ed46dba8f820f34a8
+
+## Question 112:
+What special hex code is associated with the customized malware discussed in question 111?
+```
+ans: 53 74 65 76 65 20 42 72 61 6e 74 27 73 20 42 65 61 72 64 20 69 73 20 61 20 70 6f 77 65 72 66 75 6c 20 74 68 69 6e 67 2e 20 46 69 6e 64 20 74 68 69 73 20 6d 65 73 73 61 67 65 20 61 6e 64 20 61 73 6b 20 68 69 6d 20 74 6f 20 62 75 79 20 79 6f 75 20 61 20 62 65 65 72 21 21 21
+```
 
 ## Question 12:
 What was the first brute force password used?
