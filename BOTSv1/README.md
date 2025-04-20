@@ -241,6 +241,8 @@ index=botsv1 sourcetype=stream:http
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/118.jpg?raw=true)
 
+Answer: 92.17
+
 ## Question 119:
 How many unique passwords were attempted in the brute force attempt?
 ```
@@ -251,6 +253,7 @@ index=botsv1 sourcetype=stream:http form_data=*username*passwd*
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/119.jpg?raw=true)
 
+Answer: 412
 
 --------------------------------
 # Scenario 2: Ransomware
@@ -283,6 +286,8 @@ index="botsv1" we8105desk | stats count by src_ip
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/200.jpg?raw=true)
 
+Ans: 192.168.250.100
+
 ## Question 201:
 Amongst the Suricata signatures that detected the Cerber malware, which one alerted the fewest number of times?
 
@@ -292,6 +297,8 @@ index=”botsv1" sourcetype=”suricata” *cerber*
 Get the hint from the signautre id and keep looking.
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/202.jpg?raw=true)
+
+Ans: 2816763
 
 ## Question 202: 
 What fully qualified domain name (FQDN) does the Cerber ransomware attempt to direct the user to at the end of its encryption phase?
