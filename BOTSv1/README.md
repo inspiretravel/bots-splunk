@@ -71,7 +71,7 @@ This attack used dynamic DNS to resolve to the malicious IP. What fully qualifie
 
 Look at Q104 URL file path. prankglassinebracket.jumpingcrab.com is the domain of this attack.
 
-## Question 6:
+## Question 106:
 What IPv4 address has Po1s0n1vy tied to domains that are pre-staged to attack Wayne Enterprises?
 
 Look for something in http log if people attack using malware file from malicious IP
