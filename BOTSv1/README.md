@@ -28,6 +28,7 @@ index=botsv1 imreallynotbatman.com sourcetype="stream:http"
 Look for interesting fields > source ip or dest ip. Find one field called c_ip that look like what we can answer this question.
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q100%20.jpg?raw=true)
 
+Ans: 40.80.148.42
 
 ## Question 102 :
 What company created the web vulnerability scanner used by Po1s0n1vy? Type the company name.
@@ -44,12 +45,14 @@ Look at the dest_header. We found the hint related to joomla. Keep looking down 
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q102a.jpg?raw=true)
 
-
+Ans: Acunetix
 
 ## Queston 103: 
 What content management system is imreallynotbatman.com likely using?
 
 Based on previous question, we know the joomla is one of CMS system.
+
+Ans: joomla
 
 ## Question 104:
 What is the name of the file that defaced the imreallynotbatman.com website?(Come to this question after finding password and parentprocess in further questions)
@@ -66,10 +69,14 @@ There is category field and click on Malicious Websites. Find one particular fil
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q104a.jpg?raw=true)
 
+Ans: Poisonivy-is-coming-for-you-batman.jpeg
+
 ## Question 105:
 This attack used dynamic DNS to resolve to the malicious IP. What fully qualified domain name (FQDN) is associated with this attack?
 
 Look at Q104 URL file path. prankglassinebracket.jumpingcrab.com is the domain of this attack.
+
+Ans: Prankglassinebracket.jumpingcrab.com
 
 ## Question 106:
 What IPv4 address has Po1s0n1vy tied to domains that are pre-staged to attack Wayne Enterprises?
@@ -87,6 +94,8 @@ Term: Po1s0n1vy is an Advanced Persistent Threat (APT) group identified for targ
 
 Got the hints from request field using POST involving email.
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q106.jpg?raw=true)
+
+Ans: 23.22.63.114
 
 ## Question 108:
 What IPv4 address is likely attempting a brute force password attack against imreallynotbatman.com?
@@ -108,6 +117,8 @@ Drill down more. Form_date field shows us this IP address 23.22.63.114 doing som
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q107b.jpg?raw=true)
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q107b.jpg?raw=true)
 
+Ans: 23.22.63.114
+
 ## Question 109:
 What is the name of the executable uploaded by Po1s0n1vy?
 
@@ -127,6 +138,8 @@ Look at the dest ip pointing to the local machine that capture many times
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/109b.jpg?raw=true)
 
 Eventually, found the 2 exe filenames. 3719.exe is the one. 
+
+Ans: 3791.exe
 
 ## Question 110:
 What is the MD5 hash of the executable uploaded?
@@ -166,6 +179,8 @@ index=botsv1 sourcetype=stream:http http_method=POST imreallynotbatman.com dest_
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/114.jpg?raw=true)
 
+Answer: 12345678
+
 ## Question 115: need to be reviewed
 One of the passwords in the brute force attack is James Brodsky’s favorite Coldplay song. We are looking for a six character word on this one. Which is it?
 
@@ -181,6 +196,7 @@ index=botsv1 sourcetype=”stream:http” http_method=POST form_data=”*usernam
 |search song=*
 |table song
 ```
+Ans: Yellow
 
 ## Question 116:
 What was the correct password for admin access to the content management system running “imreallynotbatman.com”?
@@ -192,6 +208,8 @@ index=botsv1 sourcetype=stream:http http_method=POST form_data=*username*passwd*
 |sort — count desc
 ```
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/116.jpg?raw=true)
+
+Ans: batman
 
 ## Question 117:
 What was the average password length used in the password brute forcing attempt?
@@ -206,6 +224,9 @@ index=botsv1 sourcetype=stream:http http_method=POST form_data=*username*passwd*
 ```
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/117.jpg?raw=true)
+
+Ans: 6
+
 
 ## Question 118:
 How many seconds elapsed between the time the brute force password scan identified the correct password and the compromised login?
