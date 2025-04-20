@@ -389,6 +389,7 @@ Answer: 257
 ## Question 208: 
 The VBscript found in question 204 launches 121214.tmp. What is the ParentProcessId of this initial launch?
 
+Look into sysmon log and input the tmp name and we know it triggered by command line. Then, sort it out from the beginning.
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/208.jpg?raw=true)
 
 Ans: 3968
