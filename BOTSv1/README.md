@@ -332,6 +332,22 @@ Ans: solidaritedeproximite.org
 ## Question 204:
 During the initial Cerber infection a VB script is run. The entire script from this execution, pre-pended by the name of the launching .exe, can be found in a field in Splunk. What is the length of the value of this field?
 
+First I searched for “.vbs” from the devices events on 2016–08–24 and hope found something else.
+
+```
+host="we8105desk" "vbs"
+```
+suspicious looking command line that executes VB script code in ParentCommandLine which I got the answer.
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/204a.jpg?raw=true)
+
+```
+index=botsv1 host="we8105desk" *.vbs* 
+|  table ParentCommandLine 
+|  eval lenParentCommandLine=len(ParentCommandLine) 
+|  stats count by ParentCommandLine, lenParentCommandLine
+```
+
 Ans: 4490
 
 ## Question 205:
@@ -408,12 +424,33 @@ Look into sysmon log and input the tmp name and we know it triggered by command 
 
 Ans: 3968
 
-## Question 209: 
+## Question 209: To be reviewed
 The Cerber ransomware encrypts files located in Bob Smith’s Windows profile. How many .txt files does it encrypt?
+
+Searchng something useful. First attempt, 410 is not the correct answer. Is it something related to event id or commandline.
+
+```
+index=botsv1 sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" we8105desk *txt
+```
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209.jpg?raw=true)
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209a.jpg?raw=true)
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209b.jpg?raw=true)
+
+There were no luck. Removed the sourcetype and digged more into filepath. Finally, got the answer
+```
+index=botsv1 "we8105desk" ".txt" EventID="2" file_path="C:\\Users\\bob.smith.WAYNECORPINC*"
+```
+
+```
+index=botsv1 "we8105desk" ".txt" EventID="2" file_path="C:\\Users\\bob.smith.WAYNECORPINC*" 
+| table TargetFilename 
+| dedup TargetFilename
+| stats count
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209d.jpg?raw=true)
+
 
 Ans: 406
 
