@@ -332,34 +332,50 @@ Ans: solidaritedeproximite.org
 ## Question 204:
 During the initial Cerber infection a VB script is run. The entire script from this execution, pre-pended by the name of the launching .exe, can be found in a field in Splunk. What is the length of the value of this field?
 
+Ans: 4490
 
 ## Question 205:
 What is the name of the USB key inserted by Bob Smith?
 
+Ans: MIRANDA_PRI
+
 ## Question 206: 
 Bob Smith’s workstation (we8105desk) was connected to a file server during the ransomware outbreak. What is the IPv4 address of the file server?
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/206.jpg?raw=true)
+Answ: 192.168.250.20
 
 ## Question 207:
 How many distinct PDFs did the ransomware encrypt on the remote file server?
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207.jpg?raw=true)
 
+Answer: 257
+
 ## Question 208: 
 The VBscript found in question 204 launches 121214.tmp. What is the ParentProcessId of this initial launch?
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/208.jpg?raw=true)
 
+Ans: 3968
 
 ## Question 209: 
 The Cerber ransomware encrypts files located in Bob Smith’s Windows profile. How many .txt files does it encrypt?
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209.jpg?raw=true)
 
+Ans: 3968
+
 ## Question 210:
 The malware downloads a file that contains the Cerber ransomware cryptor code. What is the name of that file?
 
+
+Ans: 406
+
 ## Question 211:
 Now that you know the name of the ransomware’s encryptor file, what obfuscation technique does it likely use?
+
+Ans: mhtr.jpg
 
 Search it in the internet
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/211.jpg?raw=true)
