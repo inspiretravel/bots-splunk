@@ -347,6 +347,7 @@ index=botsv1 *USBSTOR* sourcetype=WinRegistry registry_value_type=REG_SZ *usbsto
 ```
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/205.jpg?raw=true)
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/205a.jpg?raw=true)
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/205b.jpg?raw=true)
 
 friendly name
 
