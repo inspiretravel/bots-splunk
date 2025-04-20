@@ -342,24 +342,43 @@ Ans: MIRANDA_PRI
 ## Question 206: 
 Bob Smith’s workstation (we8105desk) was connected to a file server during the ransomware outbreak. What is the IPv4 address of the file server?
 
+file server most likely five us the hint of SMB.
+
+```
+index=botsv1 sourcetype=stream:smb stc_ip=192.168.250.100
+```
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/206.jpg?raw=true)
 
-Click dest-IP, find the most count value
+Click dest_ip, find the most count value
 
 Ans: 192.168.250.20
 
 ## Question 207:
 How many distinct PDFs did the ransomware encrypt on the remote file server?
 
+Use windows log and pdf to narrow down our search.
+
+```
+index=botsv1 sourcetype=wineventlog* *.pdf
+```
+
+click host field. There is 2 values. we9041srv looks like as file server.
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207.jpg?raw=true)
 
+keep searching the fields. Relative_Target_name show all PDF value
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207a.jpg?raw=true)
 
+```
+index=botsv1 sourcetype=wineventlog* *.pdf dest_nt_host="we9041srv.waynecorpinc.local" |table Relative_Target_Name
+```
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207b.jpg?raw=true)
 
+Some value in Relative_Target_Name displays more than one. Therefore, use dedup to remove the extra one.
+```
+index=botsv1 sourcetype=wineventlog* *.pdf dest_nt_host="we9041srv.waynecorpinc.local" |table Relative_Target_Name
+```
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207c.jpg?raw=true)
 
-![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207d.jpg?raw=true)
 
 Answer: 257
 
