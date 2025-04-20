@@ -150,24 +150,88 @@ What special hex code is associated with the customized malware discussed in que
 ans: 53 74 65 76 65 20 42 72 61 6e 74 27 73 20 42 65 61 72 64 20 69 73 20 61 20 70 6f 77 65 72 66 75 6c 20 74 68 69 6e 67 2e 20 46 69 6e 64 20 74 68 69 73 20 6d 65 73 73 61 67 65 20 61 6e 64 20 61 73 6b 20 68 69 6d 20 74 6f 20 62 75 79 20 79 6f 75 20 61 20 62 65 65 72 21 21 21
 ```
 
-## Question 12:
+## Question 114:
 What was the first brute force password used?
 
-## Question 13:
+```
+index=botsv1 imreallynotbatman.com dest_ip=192.168.250.70 sourcetype=stream:http http_method=POST form_data=*username*passwd* | table form_data
+```
+Use the rex function to extract the info from form_data field and sort it out by ascend sequence. 
+```
+index=botsv1 sourcetype=stream:http http_method=POST imreallynotbatman.com dest_ip=192.168.250.70 form_data=*username*passwd*
+|rex field=form_data passwd=(?<Pass>\w+)
+|table Pass src
+|reverse
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/114.jpg?raw=true)
+
+## Question 115: need to be reviewed
 One of the passwords in the brute force attack is James Brodsky’s favorite Coldplay song. We are looking for a six character word on this one. Which is it?
 
-## Question 14:
+This is the most difficulty question for me. Found the query from the web but try to explain this query:
+
+```
+index=botsv1 sourcetype=”stream:http” http_method=POST form_data=”*username*passwd*”
+|rex field=form_data “passwd=(?<Pass>\w+)”
+|eval lenpword=len(Pass)
+|search lenpword=6
+|eval pass1=lower(Pass)
+|lookup coldplay.csv song as pass OUTPUTNEW song
+|search song=*
+|table song
+```
+
+## Question 116:
 What was the correct password for admin access to the content management system running “imreallynotbatman.com”?
 
-## Question 15:
+```
+index=botsv1 sourcetype=stream:http http_method=POST form_data=*username*passwd*
+|rex field=form_data passwd=(?<Pass>\w+)
+|stats count values(src) by Pass
+|sort — count desc
+```
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/116.jpg?raw=true)
+
+## Question 117:
 What was the average password length used in the password brute forcing attempt?
 
-## Question 16:
+```
+index=botsv1 sourcetype=stream:http http_method=POST form_data=*username*passwd*
+|rex field=form_data passwd=(?<Pass>\w+)
+|search Pass=*
+|eval pwdlen=len(Pass)
+|stats avg(pwdlen) as avg_len_http
+|eval avg_len_http=round(avg_len_http,0)
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/117.jpg?raw=true)
+
+## Question 118:
 How many seconds elapsed between the time the brute force password scan identified the correct password and the compromised login?
 
-## Question 17:
-How many unique passwords were attempted in the brute force attempt?
+```
+index=botsv1 sourcetype=stream:http 
+|rex field=form_data passwd=(?<Pass>\w+)
+|search Pass=batman
+|transaction Pass
+|table duration
+```
 
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/118.jpg?raw=true)
+
+## Question 119:
+How many unique passwords were attempted in the brute force attempt?
+```
+index=botsv1 sourcetype=stream:http form_data=*username*passwd*
+|rex field=form_data passwd=(?<Pass>\w+)
+|stats dc(Pass)
+```
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/119.jpg?raw=true)
+
+
+--------------------------------
 # Scenario 2: Ransomware
 
 After the excitement of yesterday, Alice has started to settle into her new job. Sadly, she realizes her new colleagues may not be the crack cybersecurity team that she was led to believe before she joined. Looking through her incident ticketing queue she notices a “critical” ticket that was never addressed. Shaking her head, she begins to investigate. Apparently on August 24th Bob Smith (using a Windows 10 workstation named we8105desk) came back to his desk after working-out and found his speakers blaring (click below to listen), his desktop image changed (see below) and his files inaccessible.
