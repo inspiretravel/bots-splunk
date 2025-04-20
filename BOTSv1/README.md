@@ -400,7 +400,8 @@ The Cerber ransomware encrypts files located in Bob Smith’s Windows profile. H
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209.jpg?raw=true)
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209a.jpg?raw=true)
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/209b.jpg?raw=true)
-Ans: 3968
+
+Ans: 406
 
 ## Question 210:
 The malware downloads a file that contains the Cerber ransomware cryptor code. What is the name of that file?
