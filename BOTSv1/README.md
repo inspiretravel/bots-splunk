@@ -405,6 +405,15 @@ Ans: 3968
 The malware downloads a file that contains the Cerber ransomware cryptor code. What is the name of that file?
 
 
+```
+index=botsv1 sourcetype="stream:http" src_ip=192.168.250.100
+```
+Guess malware could connect somewhere. URL may be the fields to look for. 
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/210.jpg?raw=true)
+
+In URL, one file /mhtr.jpg catch our eyes. Went to confirm our assumption. Use suricata wto confirm.
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/210a.jpg?raw=true)
 Ans: 406
 
 ## Question 211:
