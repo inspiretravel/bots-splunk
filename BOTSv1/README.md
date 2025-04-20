@@ -353,6 +353,14 @@ How many distinct PDFs did the ransomware encrypt on the remote file server?
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207.jpg?raw=true)
 
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207a.jpg?raw=true)
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207b.jpg?raw=true)
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207c.jpg?raw=true)
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207d.jpg?raw=true)
+
 Answer: 257
 
 ## Question 208: 
