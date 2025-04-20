@@ -375,11 +375,15 @@ index=botsv1 sourcetype=wineventlog* *.pdf dest_nt_host="we9041srv.waynecorpinc.
 
 Some value in Relative_Target_Name displays more than one. Therefore, use dedup to remove the extra one.
 ```
-index=botsv1 sourcetype=wineventlog* *.pdf dest_nt_host="we9041srv.waynecorpinc.local" |table Relative_Target_Name
+index=botsv1 sourcetype=wineventlog* *.pdf dest_nt_host="we9041srv.waynecorpinc.local" |table Relative_Target_Name | dedup Relative_Target_Name | stats count
 ```
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207c.jpg?raw=true)
 
-
+Look for the account name using by Bob
+```
+index=botsv1 sourcetype=wineventlog* *.pdf dest_nt_host="we9041srv.waynecorpinc.local" Account_Name="bob.smith" | table Relative_Target_Name | dedup Relative_Target_Name | stats count
+```
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s2/207d.jpg?raw=true)
 Answer: 257
 
 ## Question 208: 
