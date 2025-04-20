@@ -86,7 +86,7 @@ The question is identify the attack from Po1s0n1vy.
 Term: Po1s0n1vy is an Advanced Persistent Threat (APT) group identified for targeting organizations with custom malware and spear phishing tactics, often involving initial compromise through emails with malicious attachments. The group has been associated with specific TTPs (Tactics, Techniques, Procedures) and infrastructure
 
 Got the hints from request field using POST involving email.
-![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/Q106.jpg?raw=true)
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/106.jpg?raw=true)
 
 ## Question 108:
 What IPv4 address is likely attempting a brute force password attack against imreallynotbatman.com?
