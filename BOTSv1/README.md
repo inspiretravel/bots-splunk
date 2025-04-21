@@ -199,10 +199,6 @@ Menu > Settings > lookup > add new lookup table files
 
 
 ```
-| inputlookup cp.csv or | inputlookup coldplay.csv
-```
-
-```
 index=botsv1 sourcetype=”stream:http” http_method=POST form_data=”*username*passwd*”
 |rex field=form_data “passwd=(?<Pass>\w+)”
 |eval lenpword=len(Pass)
@@ -212,7 +208,32 @@ index=botsv1 sourcetype=”stream:http” http_method=POST form_data=”*usernam
 |search song=*
 |table song
 ```
-*** Follow up the database issue -> must run below script to allow the lookup data in the search and make it all in lower case
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/115b.jpg?raw=true)
+
+
+*** Follow up the database issue -> must run below script to allow the lookup data in the search engine and make it all in lower case
+
+```
+| inputlookup cp.csv or | inputlookup coldplay.csv
+```
+check whether it can call out the lookup file data
+```
+| inputlookup cp.csv 
+|  eval song=lower(Songs) 
+|  fields song
+```
+Try the new scripts
+```
+index=botsv1 sourcetype=stream:http http_method=POST form_data=*username*passwd*
+|rex field=form_data "passwd=(?<userpassword>\w+)"
+|eval lenpword=len(userpassword)
+|search lenpword=6
+|eval password=lower(userpassword)
+|lookup cp.csv song AS password OUTPUTNEW song
+|search songs=*
+|table song password
+```
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/115c.jpg?raw=true)
 
 
 Ans: Yellow
