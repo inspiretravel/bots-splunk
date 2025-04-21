@@ -224,12 +224,12 @@ check whether it can call out the lookup file data
 ```
 Try the new scripts
 ```
-index=botsv1 sourcetype=stream:http http_method=POST form_data=*username*passwd*
+index=botsv1 sourcetype=stream:http http_method=POST dest=192.168.250.70 form_data=*username*passwd*
 |rex field=form_data "passwd=(?<userpassword>\w+)"
 |eval lenpword=len(userpassword)
 |search lenpword=6
 |eval password=lower(userpassword)
-|lookup cp.csv song AS password OUTPUTNEW song
+|lookup coldplay.csv song AS password OUTPUTNEW song
 |search songs=*
 |table song password
 ```
