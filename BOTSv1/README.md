@@ -196,7 +196,11 @@ Menu > Settings > lookup > add new lookup table files
 
 ![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/115a.jpg?raw=true)
 
-*** Follow up the database issue 
+*** Follow up the database issue -> must run below script to allow the lookup data in the search
+
+```
+| inputlookup cp.csv or | inputlookup coldplay.csv
+```
 
 ```
 index=botsv1 sourcetype=”stream:http” http_method=POST form_data=”*username*passwd*”
