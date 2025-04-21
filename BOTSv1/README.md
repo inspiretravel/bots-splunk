@@ -208,7 +208,7 @@ index=botsv1 sourcetype=”stream:http” http_method=POST form_data=”*usernam
 |search song=*
 |table song
 ```
-![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/115b.jpg?raw=true)
+
 
 
 *** Follow up the database issue -> must run below script to allow the lookup data in the search engine and make it all in lower case
