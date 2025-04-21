@@ -181,10 +181,22 @@ index=botsv1 sourcetype=stream:http http_method=POST imreallynotbatman.com dest_
 
 Answer: 12345678
 
-## Question 115: need to be reviewed
+## Question 115: ***
 One of the passwords in the brute force attack is James Brodsky’s favorite Coldplay song. We are looking for a six character word on this one. Which is it?
 
-This is the most difficulty question for me. Found the query from the web but try to explain this query:
+This is the most difficulty question for me. Found the query from the web but still try to understand this query:
+
+look for coldplay song list at web. And save it as csv file
+
+Use lookup function to perform such tasks. 
+
+Menu > Settings > lookup > add new lookup table files
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/115.jpg?raw=true)
+
+![Alt image](https://github.com/inspiretravel/bots-splunk/blob/main/BOTSv1/images_s1/115a.jpg?raw=true)
+
+*** Follow up the database issue 
 
 ```
 index=botsv1 sourcetype=”stream:http” http_method=POST form_data=”*username*passwd*”
